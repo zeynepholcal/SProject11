@@ -75,7 +75,10 @@ public class Project11 {
         driver.findElement(By.cssSelector("a[href='/addresses']")).click();
         Thread.sleep(1000);
         //click on all "Destroy" buttons
+
         List<WebElement> destroy = driver.findElements(By.xpath("//a[text()='Destroy']"));
+
+//        destroyList(destroy,driver);
 
             for (int i=0;i<destroy.size();i++) {
 
@@ -83,7 +86,18 @@ public class Project11 {
                 Thread.sleep(500);
                 driver.switchTo().alert().accept();
                 Thread.sleep(500);
+    }
 
     }
-    }
+//    public static void destroyList(List<WebElement> dest, WebDriver a) throws InterruptedException {
+//
+//        for (WebElement webElement : dest) {
+//            Thread.sleep(500);
+//            webElement.click();
+//            Thread.sleep(500);
+//           a.switchTo().alert().accept();
+//
+//        }
+//
+//    }
 }
