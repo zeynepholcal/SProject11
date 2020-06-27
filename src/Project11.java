@@ -61,8 +61,8 @@ public class Project11 {
         Assert.assertEquals(lastName,surName);
 
         driver.findElement(By.cssSelector("a[href='/addresses']")).click();
-        Thread.sleep(500);
-        driver.findElement(By.cssSelector("a[data-test='edit-11814']")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.cssSelector("tr:nth-child(1) > td:nth-child(6) > a")).click();
         Thread.sleep(1000);
         driver.findElement(By.id("address_first_name")).clear();
         name ="Peter";
@@ -73,6 +73,14 @@ public class Project11 {
         driver.findElement(By.cssSelector("input[type='submit']")).click();
         Thread.sleep(1000);
         driver.findElement(By.cssSelector("a[href='/addresses']")).click();
+        Thread.sleep(1000);
+        //click on all "Destroy" buttons
+        List<WebElement> destroy = driver.findElements(By.cssSelector("a[data-method='delete']"));
 
+            for (WebElement webElement : destroy) {
+                Thread.sleep(500);
+                webElement.click();
+                driver.switchTo().alert().accept();
+        }
     }
 }
