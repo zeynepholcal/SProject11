@@ -1,3 +1,5 @@
+import org.junit.Assert;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,8 +23,12 @@ public class Project11 {
         Thread.sleep(1000);
         driver.findElement(By.cssSelector("a[href='/addresses/new']")).click();
         Thread.sleep(1000);
-        driver.findElement(By.id("address_first_name")).sendKeys("Fernando");
-         driver.findElement(By.id("address_last_name")).sendKeys("Torres");
+
+        String name ="Fernando";
+
+        driver.findElement(By.id("address_first_name")).sendKeys(name);
+        String lastName="Torres";
+         driver.findElement(By.id("address_last_name")).sendKeys(lastName);
         driver.findElement(By.id("address_street_address")).sendKeys("Anfield Rd");
         driver.findElement(By.id("address_secondary_address")).sendKeys("Anfield");
         driver.findElement(By.id("address_city")).sendKeys("Liverpool");
@@ -34,7 +40,6 @@ public class Project11 {
         Random rand = new Random();
         select.selectByIndex(rand.nextInt(stateList.size()));
 
-
         driver.findElement(By.id("address_zip_code")).sendKeys("L4 0TH");
         driver.findElement(By.id("address_country_us")).click();
         driver.findElement(By.id("address_birthday")).sendKeys("03201984");
@@ -45,11 +50,29 @@ public class Project11 {
         driver.findElement(By.id("address_interest_climb")).click();
         driver.findElement(By.id("address_interest_dance")).click();
         driver.findElement(By.id("address_note")).sendKeys("Never Back Down");
-        
+        driver.findElement(By.cssSelector("input[name='commit']")).click();
 
+        //Check the name
+        String firstName = driver.findElement(By.cssSelector("span[data-test='first_name']")).getText();
+        Assert.assertEquals(name,firstName);
 
+        //Check last name
+        String surName = driver.findElement(By.cssSelector("span[data-test='last_name']")).getText();
+        Assert.assertEquals(lastName,surName);
 
-
+        driver.findElement(By.cssSelector("a[href='/addresses']")).click();
+        Thread.sleep(500);
+        driver.findElement(By.cssSelector("a[data-test='edit-11814']")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.id("address_first_name")).clear();
+        name ="Peter";
+        driver.findElement(By.id("address_first_name")).sendKeys(name);
+        lastName="Crouch";
+        driver.findElement(By.id("address_last_name")).clear();
+        driver.findElement(By.id("address_last_name")).sendKeys(lastName);
+        driver.findElement(By.cssSelector("input[type='submit']")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.cssSelector("a[href='/addresses']")).click();
 
     }
 }
