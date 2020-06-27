@@ -75,12 +75,15 @@ public class Project11 {
         driver.findElement(By.cssSelector("a[href='/addresses']")).click();
         Thread.sleep(1000);
         //click on all "Destroy" buttons
-        List<WebElement> destroy = driver.findElements(By.cssSelector("a[data-method='delete']"));
+        List<WebElement> destroy = driver.findElements(By.xpath("//a[text()='Destroy']"));
 
-            for (WebElement webElement : destroy) {
+            for (int i=0;i<destroy.size();i++) {
+
+                driver.findElement(By.xpath("//a[text()='Destroy']")).click();
                 Thread.sleep(500);
-                webElement.click();
                 driver.switchTo().alert().accept();
-        }
+                Thread.sleep(500);
+
+    }
     }
 }
