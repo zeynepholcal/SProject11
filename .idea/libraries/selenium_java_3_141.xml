@@ -1,13 +1,15 @@
 <component name="libraryTable">
   <library name="selenium-java-3.141">
     <CLASSES>
-      <root url="file://D:/selenium-java-3.141.59" />
+      <root url="file://C:/selenium/selenium-java-3.141.59" />
+      <root url="file://C:/selenium/selenium-java-3.141.59/libs" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="file://D:/selenium-java-3.141.59" />
+      <root url="file://C:/selenium/selenium-java-3.141.59" />
     </SOURCES>
-    <jarDirectory url="file://D:/selenium-java-3.141.59" recursive="false" />
-    <jarDirectory url="file://D:/selenium-java-3.141.59" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://C:/selenium/selenium-java-3.141.59" recursive="false" />
+    <jarDirectory url="file://C:/selenium/selenium-java-3.141.59/libs" recursive="false" />
+    <jarDirectory url="file://C:/selenium/selenium-java-3.141.59" recursive="false" type="SOURCES" />
   </library>
 </component>
